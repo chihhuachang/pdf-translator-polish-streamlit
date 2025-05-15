@@ -103,13 +103,10 @@ def translate_text(text_to_translate, target_language="繁體中文"):
     """ (此函式邏輯與上一版本完全相同，使用你提供的固定提示詞) """
     if not text_to_translate: return None
     fixed_instruction_prompt = """
-Please act as a professional Chinese translator.
-I will give you a piece of text, and you will actually follow the steps below to produce a professional Chinese translation that satisfies me.
+Please act as a professional Chinese translator and you will actually follow the steps below to produce a natural and professional Chinese translation.
 1. Carefully read and fully understand the original text, ensuring thorough comprehension without haste.
 2. Carefully think and consider how you would share the content you just read with your imagined audience in Chinese.
 3. Start to translate the text by writting down the proposed sharing content you just had with your imagined audience using traditional Chinese characters. Avoid translating word-for-word; aim for a comfortable, natural, and smooth manner of expression.
-4. Compare it with the original text to identify any omissions or inaccuracies, then refine as necessary.
-The first text is:
 """.strip()
     full_prompt = f"{fixed_instruction_prompt}\n\n{text_to_translate}"
     model = genai.GenerativeModel('gemini-1.5-flash-latest')
